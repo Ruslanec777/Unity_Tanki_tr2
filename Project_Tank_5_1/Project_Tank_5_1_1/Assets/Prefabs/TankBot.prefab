@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 1015921791315140637, guid: 3057334e156267e43ade5bf0d57efa32, type: 3}
   _speedBullet: 10000000
+  _gunReloadTime: 5
 --- !u!1 &655320169560226827
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,9 +390,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5801832554321944773}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5000
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
