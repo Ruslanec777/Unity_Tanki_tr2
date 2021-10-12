@@ -25,6 +25,8 @@ public class PlayerManager : MonoBehaviour
     private bool _moveLeft = false;
     private bool _moveRight = false;
 
+    private float _rotationX = 0f;
+
 
 
     void Update()
@@ -49,22 +51,36 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             //if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= minVerticalAngleBarrel)
-            Debug.Log( ( (_transformPivotBarrelVertical.rotation.eulerAngles.x > 180f) ? _transformPivotBarrelVertical.rotation.eulerAngles.x -360f : _transformPivotBarrelVertical.rotation.eulerAngles.x).ToString()  +
-                $">= { minVerticalAngleBarrel }");
-            if (_transformPivotBarrelVertical.transform.rotation.eulerAngles.x >= minVerticalAngleBarrel | true)
-            {
-                _transformPivotBarrelVertical.Rotate(Vector3.right * -_speedAngleTower * Time.deltaTime);
-            }
+            //Debug.Log( ( (_transformPivotBarrelVertical.rotation.eulerAngles.x > 180f) ? _transformPivotBarrelVertical.rotation.eulerAngles.x -360f : _transformPivotBarrelVertical.rotation.eulerAngles.x).ToString()  +
+            //    $">= { minVerticalAngleBarrel }");
+            //if (_transformPivotBarrelVertical.transform.rotation.eulerAngles.x >= minVerticalAngleBarrel | true)
+            //{
+            //    _transformPivotBarrelVertical.Rotate(Vector3.right * -_speedAngleTower * Time.deltaTime);
+            //}
+
+            _rotationX -= Input.GetAxis("Mouse Y") * _speedAngle;
+            _rotationX = Mathf.Clamp(_rotationX, minVerticalAngleBarrel, maxVerticalAngleBarrel);
+
+            float rotationY = transform.localEulerAngles.y;
+
+            transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            Debug.Log( ( (_transformPivotBarrelVertical.rotation.eulerAngles.x > 180f) ? _transformPivotBarrelVertical.rotation.eulerAngles.x - 360f : _transformPivotBarrelVertical.rotation.eulerAngles.x).ToString() +
-                $"<= {maxVerticalAngleBarrel + 360}");
-            if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= maxVerticalAngleBarrel | true)
-            {
-                _transformPivotBarrelVertical.Rotate(Vector3.right * _speedAngleTower * Time.deltaTime);
-            }
+            //Debug.Log( ( (_transformPivotBarrelVertical.rotation.eulerAngles.x > 180f) ? _transformPivotBarrelVertical.rotation.eulerAngles.x - 360f : _transformPivotBarrelVertical.rotation.eulerAngles.x).ToString() +
+            //    $"<= {maxVerticalAngleBarrel + 360}");
+            //if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= maxVerticalAngleBarrel | true)
+            //{
+            //    _transformPivotBarrelVertical.Rotate(Vector3.right * _speedAngleTower * Time.deltaTime);
+            //}
+            _rotationX -= Input.GetAxis("Mouse Y") * _speedAngle;
+            _rotationX = Mathf.Clamp(_rotationX, minVerticalAngleBarrel, maxVerticalAngleBarrel);
+
+            float rotationY = transform.localEulerAngles.y;
+
+            transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
