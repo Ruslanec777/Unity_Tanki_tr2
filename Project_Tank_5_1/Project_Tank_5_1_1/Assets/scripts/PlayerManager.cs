@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
 
 
 {
+    public float maxVerticalAngleBarrel;
+    public float minVerticalAngleBarrel;
 
     [SerializeField] private Rigidbody _rigidbodey;
     [SerializeField] private float _speed = 100;
@@ -46,12 +48,21 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            _transformPivotBarrelVertical.Rotate(Vector3.left * -_speedAngleTower * Time.deltaTime);
+            //if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= minVerticalAngleBarrel)
+            Debug.Log(_transformPivotBarrelVertical.rotation.eulerAngles.x +$">= { minVerticalAngleBarrel}");
+            if (_transformPivotBarrelVertical.transform.rotation.eulerAngles.x >= minVerticalAngleBarrel | true)
+            {
+                _transformPivotBarrelVertical.Rotate(Vector3.right * -_speedAngleTower * Time.deltaTime);
+            }
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            _transformPivotBarrelVertical.Rotate(Vector3.left * _speedAngleTower * Time.deltaTime);
+            Debug.Log(_transformPivotBarrelVertical.rotation.eulerAngles.x+ $"<= {maxVerticalAngleBarrel}");
+            if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= maxVerticalAngleBarrel | true)
+            {
+                _transformPivotBarrelVertical.Rotate(Vector3.right * _speedAngleTower * Time.deltaTime);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
