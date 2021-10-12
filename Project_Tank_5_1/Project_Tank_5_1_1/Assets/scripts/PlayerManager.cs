@@ -49,7 +49,8 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             //if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= minVerticalAngleBarrel)
-            Debug.Log(_transformPivotBarrelVertical.rotation.eulerAngles.x +$">= { minVerticalAngleBarrel}");
+            Debug.Log( ( (_transformPivotBarrelVertical.rotation.eulerAngles.x > 180f) ? _transformPivotBarrelVertical.rotation.eulerAngles.x -360f : _transformPivotBarrelVertical.rotation.eulerAngles.x).ToString()  +
+                $">= { minVerticalAngleBarrel }");
             if (_transformPivotBarrelVertical.transform.rotation.eulerAngles.x >= minVerticalAngleBarrel | true)
             {
                 _transformPivotBarrelVertical.Rotate(Vector3.right * -_speedAngleTower * Time.deltaTime);
@@ -58,7 +59,8 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            Debug.Log(_transformPivotBarrelVertical.rotation.eulerAngles.x+ $"<= {maxVerticalAngleBarrel}");
+            Debug.Log( ( (_transformPivotBarrelVertical.rotation.eulerAngles.x > 180f) ? _transformPivotBarrelVertical.rotation.eulerAngles.x - 360f : _transformPivotBarrelVertical.rotation.eulerAngles.x).ToString() +
+                $"<= {maxVerticalAngleBarrel + 360}");
             if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= maxVerticalAngleBarrel | true)
             {
                 _transformPivotBarrelVertical.Rotate(Vector3.right * _speedAngleTower * Time.deltaTime);
