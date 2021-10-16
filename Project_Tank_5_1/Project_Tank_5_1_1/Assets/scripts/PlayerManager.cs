@@ -58,12 +58,14 @@ public class PlayerManager : MonoBehaviour
             //    _transformPivotBarrelVertical.Rotate(Vector3.right * -_speedAngleTower * Time.deltaTime);
             //}
 
-            _rotationX -= Input.GetAxis("Mouse Y") * _speedAngle;
+            _rotationX =- _speedAngle;
+            Debug.Log(_rotationX);
+
             _rotationX = Mathf.Clamp(_rotationX, minVerticalAngleBarrel, maxVerticalAngleBarrel);
 
-            float rotationY = transform.localEulerAngles.y;
+            float rotationY = _transformPivotBarrelVertical.transform.localEulerAngles.y;
 
-            transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
+            _transformPivotBarrelVertical.transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
@@ -74,12 +76,14 @@ public class PlayerManager : MonoBehaviour
             //{
             //    _transformPivotBarrelVertical.Rotate(Vector3.right * _speedAngleTower * Time.deltaTime);
             //}
-            _rotationX -= Input.GetAxis("Mouse Y") * _speedAngle;
+            _rotationX = +_speedAngle;
+            Debug.Log(_rotationX);
+
             _rotationX = Mathf.Clamp(_rotationX, minVerticalAngleBarrel, maxVerticalAngleBarrel);
 
-            float rotationY = transform.localEulerAngles.y;
+            float rotationY =  _transformPivotBarrelVertical.transform.localEulerAngles.y;
 
-            transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
+            _transformPivotBarrelVertical.transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
 
         }
 

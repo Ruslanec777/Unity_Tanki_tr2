@@ -62,11 +62,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2290a1e80bcd98143a3f84b101ce8bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVerticalAngleBarrel: 95
-  minVerticalAngleBarrel: 84
+  maxVerticalAngleBarrel: -90
+  minVerticalAngleBarrel: 90
   _rigidbodey: {fileID: 7660113603840268066}
   _speed: 50
-  _speedAngle: 32
+  _speedAngle: 0.05
   _speedAngleTower: 2
   _transformPivotTowerHullTankHoriztal: {fileID: 3146847623817177267}
   _transformPivotBarrelVertical: {fileID: 1201489800249377221}
