@@ -58,7 +58,7 @@ public class PlayerManager : MonoBehaviour
             //    _transformPivotBarrelVertical.Rotate(Vector3.right * -_speedAngleTower * Time.deltaTime);
             //}
 
-            _rotationX =- _speedAngle;
+            _rotationX -= _speedAngle;
             Debug.Log(_rotationX);
 
             _rotationX = Mathf.Clamp(_rotationX, minVerticalAngleBarrel, maxVerticalAngleBarrel);
@@ -76,7 +76,7 @@ public class PlayerManager : MonoBehaviour
             //{
             //    _transformPivotBarrelVertical.Rotate(Vector3.right * _speedAngleTower * Time.deltaTime);
             //}
-            _rotationX = +_speedAngle;
+            _rotationX += _speedAngle;
             Debug.Log(_rotationX);
 
             _rotationX = Mathf.Clamp(_rotationX, minVerticalAngleBarrel, maxVerticalAngleBarrel);
