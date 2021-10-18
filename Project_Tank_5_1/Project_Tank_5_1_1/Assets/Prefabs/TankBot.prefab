@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 1947382603895224471}
   - component: {fileID: 3424947214876080965}
   - component: {fileID: 2860965437190060580}
+  - component: {fileID: 650102697184974982}
   m_Layer: 0
   m_Name: TankBot
   m_TagString: Untagged
@@ -411,6 +412,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointForRayCast: {fileID: 6153438264590151074}
+--- !u!114 &650102697184974982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5801832554321944773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7144f81ead2dfee4484f99ad2ebbe197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8720049357045954708
 GameObject:
   m_ObjectHideFlags: 0

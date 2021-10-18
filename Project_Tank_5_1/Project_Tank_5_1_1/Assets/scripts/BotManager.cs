@@ -17,4 +17,9 @@ public class BotManager : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //collision.gameObject.TryGetComponent<>
+    }
 }
