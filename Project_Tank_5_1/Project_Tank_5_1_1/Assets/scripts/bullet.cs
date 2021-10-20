@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    
+
     private void Awake()
     {
         SphereCollider sphereCollider = gameObject.GetComponent<SphereCollider>(); // может ли без этого работать ?;
@@ -16,7 +16,8 @@ public class bullet : MonoBehaviour
 
     //}
 
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter(Collision collision)
+    {
 
 
         //gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 1000000); // просто проверил возможность обратиться к компоненту
@@ -26,7 +27,7 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-         DamageForObject damageForObject = other.GetComponent<DamageForObject>();
+        DamageForObject damageForObject = other.GetComponent<DamageForObject>();
 
         if (damageForObject != null)
         {
