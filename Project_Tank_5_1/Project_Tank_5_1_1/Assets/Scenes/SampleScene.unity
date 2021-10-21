@@ -375,6 +375,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1619210656 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7953975803350877396, guid: c4d3b3634fcccc84ba34f6768baf7431,
+    type: 3}
+  m_PrefabInstance: {fileID: 216353491248748622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1640911813
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +816,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2860965437190060580, guid: c4d3b3634fcccc84ba34f6768baf7431,
+        type: 3}
+      propertyPath: _smoothing
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860965437190060580, guid: c4d3b3634fcccc84ba34f6768baf7431,
+        type: 3}
+      propertyPath: _distancVision
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860965437190060580, guid: c4d3b3634fcccc84ba34f6768baf7431,
+        type: 3}
+      propertyPath: _pivotTowerHullTankHoriztal
+      value: 
+      objectReference: {fileID: 1619210656}
     - target: {fileID: 5801832554321944773, guid: c4d3b3634fcccc84ba34f6768baf7431,
         type: 3}
       propertyPath: m_Name

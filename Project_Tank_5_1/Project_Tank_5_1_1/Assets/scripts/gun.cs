@@ -13,6 +13,7 @@ public class gun : MonoBehaviour
     {
         if (Time.realtimeSinceStartup> _momentOfLastShot + _gunReloadTime)
         {
+
             GameObject bulletTemp = Instantiate(_bullet, transform);
             //bulletTemp.GetComponent<Rigidbody>().velocity = transform.forward * _speedBullet;
             bulletTemp.GetComponent<Rigidbody>().AddForce(transform.forward * _speedBullet);
