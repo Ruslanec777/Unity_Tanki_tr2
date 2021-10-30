@@ -7,12 +7,13 @@ public class PlayerManager : MonoBehaviour
 
 
 {
-    public float maxVerticalAngleBarrel;
-    public float minVerticalAngleBarrel;
+    public float maxVerticalAngleBarrel = 3f;
+    public float minVerticalAngleBarrel =-4f;
 
     [SerializeField] private Rigidbody _rigidbodey;
     [SerializeField] private float _speed = 100;
-    [SerializeField] private float _speedAngle;
+    [SerializeField] private float _speedAngleOfTank=34f;
+    [SerializeField] private float _speedAngleVertical=0.3f;
     [SerializeField] private float _speedAngleTower;
     [SerializeField] private Transform _transformPivotTowerHullTankHoriztal;
     [SerializeField] private Transform _transformPivotBarrelVertical;
@@ -26,6 +27,11 @@ public class PlayerManager : MonoBehaviour
     private bool _moveRight = false;
 
     private float _rotationX = 0f;
+
+    private void Start()
+    {
+        _rigidbodey = gameObject.GetComponent<Rigidbody>();
+    }
 
 
 
@@ -50,15 +56,8 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            //if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= minVerticalAngleBarrel)
-            //Debug.Log( ( (_transformPivotBarrelVertical.rotation.eulerAngles.x > 180f) ? _transformPivotBarrelVertical.rotation.eulerAngles.x -360f : _transformPivotBarrelVertical.rotation.eulerAngles.x).ToString()  +
-            //    $">= { minVerticalAngleBarrel }");
-            //if (_transformPivotBarrelVertical.transform.rotation.eulerAngles.x >= minVerticalAngleBarrel | true)
-            //{
-            //    _transformPivotBarrelVertical.Rotate(Vector3.right * -_speedAngleTower * Time.deltaTime);
-            //}
 
-            _rotationX -= _speedAngle;
+            _rotationX -= _speedAngleVertical;
             Debug.Log(_rotationX);
 
             _rotationX = Mathf.Clamp(_rotationX, minVerticalAngleBarrel, maxVerticalAngleBarrel);
@@ -70,13 +69,8 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            //Debug.Log( ( (_transformPivotBarrelVertical.rotation.eulerAngles.x > 180f) ? _transformPivotBarrelVertical.rotation.eulerAngles.x - 360f : _transformPivotBarrelVertical.rotation.eulerAngles.x).ToString() +
-            //    $"<= {maxVerticalAngleBarrel + 360}");
-            //if (_transformPivotBarrelVertical.rotation.eulerAngles.x  >= maxVerticalAngleBarrel | true)
-            //{
-            //    _transformPivotBarrelVertical.Rotate(Vector3.right * _speedAngleTower * Time.deltaTime);
-            //}
-            _rotationX += _speedAngle;
+
+            _rotationX += _speedAngleVertical;
             Debug.Log(_rotationX);
 
             _rotationX = Mathf.Clamp(_rotationX, minVerticalAngleBarrel, maxVerticalAngleBarrel);
@@ -84,7 +78,6 @@ public class PlayerManager : MonoBehaviour
             float rotationY =  _transformPivotBarrelVertical.transform.localEulerAngles.y;
 
             _transformPivotBarrelVertical.transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
-
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -108,12 +101,12 @@ public class PlayerManager : MonoBehaviour
 
         if (_moveLeft)
         {
-            _rigidbodey.AddRelativeTorque(Vector3.up * -_speedAngle);
+            _rigidbodey.AddRelativeTorque(Vector3.up * -_speedAngleOfTank);
         }
 
         if (_moveRight)
         {
-            _rigidbodey.AddRelativeTorque(Vector3.up * _speedAngle);
+            _rigidbodey.AddRelativeTorque(Vector3.up * _speedAngleOfTank);
         }
 
 
